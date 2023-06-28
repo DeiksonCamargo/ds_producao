@@ -130,14 +130,6 @@ Foi o utilizado a técnica de ***Random Search*** para fazer a busca dos melhore
 
 Sendo que os parâmetros do **Teste 4** foram os selecionados como os melhores parâmetros para o treinamento do modelo.
 
-## 5.6. Performance do Modelo
-Como podemos observar nos dois primeiro gráficos abaixo, o modelo selecionado obteve uma performance aceitável, visto que conseguiu entender e reproduzir o padrão de vendas ao longo dos anos estudados.
-
-Já nos dois últimos gráficos, podemos observar uma distribuição normal a cerca das previsões, o que nos inidica um bom resultado do modelo selecionado, além de podermos verificar a distribuição dos erros do modelo.
-
-![hip_3](https://github.com/DeiksonCamargo/rosmmann/assets/104236701/e69bd65d-05e6-4c50-9b6a-df75fd668dde)
-
-
 
 # 7. Resultado de Negócio
 Com o modelo selecionado e treinado, obtivemos a seguinte performance de negócio para as 5 melhores lojas:
