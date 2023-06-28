@@ -61,26 +61,8 @@ Para criar a solução, foram utilizadas as seguintes ferramentas:
 - Técnicas de redução de dimensionalidade e seleção de atributos
 - Algoritmos de Machine Learning da biblioteca [scikit-learn](https://scikit-learn.org/stable/) da linguagem de programação Python
 
-# 4. Top 3 Insights
 
-## Insight 1: Lojas Abertas durante o feriado de Natal deveriam vender mais
-**Hipótese Falsa:** Lojas que ficam abertas durante o feriado de natal não vendem mais em comparação a outros feriados
-
-
-
-## Insight 2: Lojas Deveriam vender mais depois do dia 10 de cada mês
-**Hipótese Verdadeira:** Lojas realmente vendem mais depois do dia 10 de cada mês
-
-![hip_2](https://github.com/DeiksonCamargo/rosmmann/assets/104236701/8b7a2fc2-d15e-4106-8a1b-48e5cb3d1a31)
-
-
-## Insight 3: Lojas deveriam vender mais no segundo semestre do ano
-**Hipótese Falsa:** Lojas vendem MENOS no segundo semestre do ano
-
-![hip_3](https://github.com/DeiksonCamargo/rosmmann/assets/104236701/14c6a28a-d438-4617-92bc-82ef7681a8a9)
-
-
-# 5. Modelos de Machine Learning
+# 4. Modelos de Machine Learning
 Para o primeiro ciclo do projeto foram selecionados 5 algoritmos para teste, a fim de escolher o algoritmo que tivesse a melhor perfomance e o melhor custo de implementação. Foi optado pela simplicidade nessa etapa inicial, visto que era o primeiro ciclo do projeto e o objetivo principal era entregar uma solução que fosse mínimamente utilizável para a equipe de negócios e pelo CFO.
 
 Os algotitmos selecionados foram:
@@ -90,15 +72,15 @@ Os algotitmos selecionados foram:
 - Random Forest Regressor
 - XGBRegressor
 
-Após a escolha dos algoritmos, foram realizados treinamentos e testes com cada um deles, a fim de verificar qual deles teria a melhor perfomance.
+Após a escolha dos algoritmos, foram realizados treinamentos e testes com cada um deles, a fim de verificar qual deles teria a melhor performance.
 
-Além disso, foi utilizado o método de seleção de *features* Boruta para auxiliar na escolha das *features* mais importantes e impactantes da base de dados.
+Foi utilizado o método de seleção de *features* Boruta para auxiliar na escolha das *features* mais importantes e impactantes da base de dados.
 
-# 6. Seleção do Modelo de Machine Learning
-## 6.1. Esolha da Métrica
+# 5. Seleção do Modelo de Machine Learning
+## 5.1. Esolha da Métrica
 Foi utilizado a métrica ***MAPE (Mean Absolute Percentage Error)*** como parâmetro de escolha entre os algoritmos, porque esta métrica é mais fácil de ser consumida pela equipe de negócio e pelo CEO, visto que ela representa a porcentagem do erro em relação ao valor médio.
 
-## 6.2. Métricas dos Algoritmos
+## 5.2. Métricas dos Algoritmos
 Após os testes inicias, obtivemos os seguintes resultados:
 
 
@@ -110,7 +92,7 @@ Após os testes inicias, obtivemos os seguintes resultados:
 | Random Forest Regressor   |  679.893818 | 0.099967 | 1011.038517 |
 | XGBRegressor              |  865.126662 | 0.124905 | 1278.187883 |
 
-## 6.3. Métricas dos Algoritmos - *Cross Validation*
+## 5.3. Métricas dos Algoritmos - *Cross Validation*
 Após os testes com os algoritmos selecionados, foi utilizado a técnica de ***Cross Validation*** para validar os resultados e garantir a performance real de cada uma dos modelo utilizados. Como o problema se tratava de um série temporal, foi utilizada a técnica de ***Cross Validation*** específica para esse problema, respeitando assim a linha do tempo no treinamento dos algoritmos.
 
 
@@ -123,14 +105,14 @@ Com esse método de validação, foram obtidas as seguintes performances:
 | Random Forest Regressor       |  837.66 +/- 218.22 | 0.12 +/- 0.02 | 1255.81 +/- 318.76 |
 | XGBoost Regressor             | 1045.83 +/- 182.93 | 0.14 +/- 0.02 |  1509.2 +/- 260.07 |
 
-## 6.4. Escolha do Modelo
+## 5.4. Escolha do Modelo
 Embora o algoritmo ***Random Fores Regressor*** tenha sido o algoritmo que melhor performou, foi optado pelo algoritmo ***XGBosst Regressor*** nesta etapa. 
 - Primeiro, porque o erro entre esses dois algoritmos é pequeno.
 - segundo porque o tempo de treinamento do ***XGBoost Regressor*** é mais rápido se comparado ao algoritmo ***Random Fores Regressor***. 
 - Terceiro porque o modelo final treinado pelo algoritmo ***XGBoost Regressor*** ocupa menos espaço que o algoritmo ***Random Fores Regressor***, deixando assim o uso de servidores em nuvem mais baratos.
 
 
-## 6.5. Ajuste de Hiperparâmetros
+## 5.5. Ajuste de Hiperparâmetros
 Foi o utilizado a técnica de ***Random Search*** para fazer a busca dos melhores hyperparâmetros. Os testes realizados foram os seguintes:
 
 | Tentativa |             MAE CV |       MAPE CV |            RMSE CV |
@@ -148,7 +130,7 @@ Foi o utilizado a técnica de ***Random Search*** para fazer a busca dos melhore
 
 Sendo que os parâmetros do **Teste 4** foram os selecionados como os melhores parâmetros para o treinamento do modelo.
 
-## 6.6. Performance do Modelo
+## 5.6. Performance do Modelo
 Como podemos observar nos dois primeiro gráficos abaixo, o modelo selecionado obteve uma performance aceitável, visto que conseguiu entender e reproduzir o padrão de vendas ao longo dos anos estudados.
 
 Já nos dois últimos gráficos, podemos observar uma distribuição normal a cerca das previsões, o que nos inidica um bom resultado do modelo selecionado, além de podermos verificar a distribuição dos erros do modelo.
@@ -197,11 +179,3 @@ Conforme pôde ser verificado, o projeto resolveu o problema inicial, que era a 
 # 9. Lições Aprendidas
 * Priorizar tarefas e soluções
 * Desenvolver soluções de forma cíclica, entregando assim resultado mais rapidamente
-
-# 10. Próximos Passos
-* Investigar a razão de algumas lojas estarem com previsões ruins
-* Selecionar outros algoritmos para treinamento no próximo ciclo, a fim de buscar uma solução que melhore o desempenho da previsão
-* Criar uma apllicação Web utilizando o framework Streamlit para dar acesso Web às previsões para os gerentes das lojas.
-* Implementar testes unitários nas classes e funções produzidas.
-* Criar novas *Features* para tentar melhorar a perfomance do modelo atual e de modelos futuros.
-* Aplicar técnicas de programação para melhorar o desempenho da solução criada.
